@@ -16,41 +16,41 @@
         }
         .nav {
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             margin-bottom: 40px;
-            border-bottom: 2px solid #f1f3f4;
             padding-bottom: 10px;
         }
         .nav a {
             color: #5f6368;
             text-decoration: none;
-            margin-right: 20px;
+            margin: 0 20px;
             font-weight: 500;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         .nav a:first-child {
             color: #1a73e8;
-            border-bottom: 2px solid #1a73e8;
         }
-        h1, h2 {
-            color: #202124;
+        .nav i {
+            font-size: 24px;
+            margin-bottom: 5px;
         }
         h1 {
             font-size: 48px;
             font-weight: normal;
             margin-bottom: 10px;
             text-align: center;
+            color: #202124;
         }
         h1 span {
             color: #1a73e8;
         }
-        h2 {
-            font-size: 28px;
-            margin-top: 40px;
-        }
         .subtitle {
             text-align: center;
-            font-size: 24px;
+            font-size: 18px;
             margin-bottom: 30px;
+            color: #5f6368;
         }
         .supported-by {
             text-align: center;
@@ -66,20 +66,18 @@
             align-items: center;
             gap: 20px;
         }
-        .logo-placeholder {
-            width: 150px;
-            height: 50px;
-            background-color: #f1f3f4;
-            display: inline-block;
+        .logo {
+            height: 40px;
+            width: auto;
         }
         .date-location {
             text-align: center;
-            margin-bottom: 30px;
-            font-size: 18px;
+            margin-bottom: 20px;
+            font-size: 16px;
         }
         .register-btn {
             display: block;
-            width: 200px;
+            width: 300px;
             margin: 0 auto 40px;
             padding: 12px 24px;
             background-color: #1a73e8;
@@ -88,28 +86,77 @@
             border-radius: 5px;
             text-align: center;
             font-weight: bold;
+            font-size: 18px;
         }
         .section {
-            margin-bottom: 40px;
+            margin-bottom: 60px;
+        }
+        h2 {
+            font-size: 32px;
+            margin-top: 40px;
+            color: #202124;
+            display: flex;
+            align-items: center;
+        }
+        h2 i {
+            margin-right: 15px;
+            font-size: 36px;
+            color: #1a73e8;
         }
         ul {
-            padding-left: 20px;
-        }
-        .timeline {
-            list-style-type: none;
             padding-left: 0;
-        }
-        .timeline li {
-            margin-bottom: 10px;
-        }
-        .timeline .date {
-            font-weight: bold;
-            margin-right: 10px;
+            list-style-type: none;
         }
         .icon-text {
             display: flex;
             align-items: center;
-            gap: 10px;
+            margin-bottom: 15px;
+        }
+        .icon-text i {
+            width: 30px;
+            margin-right: 10px;
+            color: #1a73e8;
+        }
+        .timeline {
+            margin-top: 40px;
+        }
+        .timeline-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .timeline-header div {
+            text-align: center;
+            padding: 10px;
+            border-radius: 5px;
+            font-weight: bold;
+            color: white;
+        }
+        .timeline-header .registration { background-color: #4285F4; }
+        .timeline-header .selection { background-color: #EA4335; }
+        .timeline-header .hackathon { background-color: #34A853; }
+        .timeline-header .finalization { background-color: #FBBC05; }
+        .phase-box {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .phase-box h3 {
+            margin-top: 0;
+            color: white;
+            padding: 10px;
+            border-radius: 5px 5px 0 0;
+            margin: -20px -20px 15px -20px;
+        }
+        .phase-1 h3 { background-color: #4285F4; }
+        .phase-2 h3 { background-color: #EA4335; }
+        .phase-3 h3 { background-color: #34A853; }
+        .phase-4 h3 { background-color: #FBBC05; }
+        .phase-box .date {
+            font-weight: bold;
+            margin-bottom: 10px;
         }
     </style>
 </head>
@@ -128,17 +175,17 @@
     <div class="supported-by">
         <p>Supported By</p>
         <div class="logo-container">
-            <div class="logo-placeholder"></div>
-            <div class="logo-placeholder"></div>
+            <img src="images/unesco.svg" alt="UNESCO logo" class="logo">
+            <img src="images/google.png" alt="Google logo" class="logo">
         </div>
     </div>
 
     <p class="date-location">
         <i class="far fa-calendar-alt"></i>
-        Dec 15, 2024 - Jan 15, 2025 • Online + Onsite at Amritapuri Campus
+        Dec 1, 2024 - Jan 18, 2025 • Online + Onsite at Amritapuri Campus, Kerala
     </p>
 
-    <a href="https://forms.gle/58dUv89C47Kmt9Ye7" class="register-btn" target="_blank"><i class="fas fa-user-plus"></i> Register now</a>
+    <a href="https://forms.gle/CvSGKFHNEeJotm6P7" class="register-btn" target="_blank">Register now</a>
 
     <div id="overview" class="section">
         <h2><i class="fas fa-info-circle"></i> Overview</h2>
@@ -151,35 +198,77 @@
         <ul>
             <li class="icon-text"><i class="fas fa-users"></i> Teams of 3-5 members</li>
             <li class="icon-text"><i class="fas fa-globe"></i> Open to participants globally</li>
-            <li class="icon-text"><i class="fas fa-laptop-code"></i> Participants can be developers, tech enthusiasts, designers, students, researchers, or representatives from civil society, NGOs, and government</li>
-            <li class="icon-text"><i class="fas fa-brain"></i> Basic knowledge of AI and machine learning</li>
-            <li class="icon-text"><i class="fas fa-heart"></i> Passion for addressing gender equality issues through technology</li>
+            <li class="icon-text"><i class="fas fa-laptop-code"></i> Participants can be students (undergraduates, graduate and PhD students) with a valid university affiliation</li>
+            <li class="icon-text"><i class="fas fa-brain"></i> Basic knowledge of AI/ML or social sciences or design</li>
+            <li class="icon-text"><i class="fas fa-heart"></i> Passion for addressing issues affecting women and other underrepresented groups through technology</li>
         </ul>
     </div>
 
     <div id="timeline" class="section">
         <h2><i class="fas fa-clock"></i> Timeline</h2>
-        <ul class="timeline">
-            <li><span class="date"><i class="fas fa-flag-checkered"></i> Dec 15, 2024:</span> Hackathon kickoff and team formation</li>
-            <li><span class="date"><i class="fas fa-laptop-code"></i> Dec 16-31, 2024:</span> Online development phase with mentorship support</li>
-            <li><span class="date"><i class="fas fa-tools"></i> Jan 1-14, 2025:</span> Continued development and preparation for final presentations</li>
-            <li><span class="date"><i class="fas fa-trophy"></i> Jan 15, 2025:</span> Final presentations and judging at Amritapuri Campus</li>
-        </ul>
+        
+        <img src="images/timeline.svg" alt="Hackathon Timeline" class="timeline-image">
+    
+        <div class="phase-box phase-1">
+            <h3>Phase 1: Registration</h3>
+            <p class="date">September 5 - November 22, 2024</p>
+            <p><strong>Registration Period</strong></p>
+            <p>Register for the GenAI x Gender Tech Hackathon. Form your teams and prepare for an exciting journey of innovation and problem-solving in the field of AI and gender equality.</p>
+        </div>
+    
+        <div class="phase-box phase-2">
+            <h3>Phase 2: Participant Selection</h3>
+            <p class="date">November 24, 2024</p>
+            <p><strong>Participants Selected</strong></p>
+            <p>The organizing committee will review all applications and select the participants for the hackathon. Successful applicants will be notified and provided with further instructions.</p>
+        </div>
+    
+        <div class="phase-box phase-3">
+            <h3>Phase 3: Hackathon</h3>
+            <p class="date">December 1 - December 28, 2024</p>
+            <p><strong>Online Hackathon</strong></p>
+            <p>The hackathon begins! Participants will work on their projects, leveraging AI to address gender equality challenges. Mentorship and support will be provided throughout this phase.</p>
+        </div>
+    
+        <div class="phase-box phase-4">
+            <h3>Phase 4: Finalization and Presentations</h3>
+            <p class="date">January 6 - January 18, 2025</p>
+            <p><strong>Top 10 Teams Selection and Final Presentations</strong></p>
+            <p>January 6: The top 10 teams will be selected based on their project submissions.</p>
+            <p>January 18: Onsite presentations and awards ceremony at Amritapuri Campus. The selected teams will showcase their projects, and winners will be announced.</p>
+        </div>
     </div>
 
     <div id="faqs" class="section">
         <h2><i class="fas fa-question-circle"></i> FAQs</h2>
-        <h3><i class="fas fa-robot"></i> Do I need to be an expert in AI to participate?</h3>
-        <p>No, but basic knowledge of AI and machine learning is beneficial. We welcome participants with diverse skills and backgrounds.</p>
-
-        <h3><i class="fas fa-money-bill-wave"></i> Is there a registration fee?</h3>
-        <p>No, participation in the hackathon is free of charge.</p>
-
-        <h3><i class="fas fa-plane"></i> Will travel support be provided for the onsite event?</h3>
-        <p>Limited travel support may be available for teams demonstrating financial need. Please contact the organizers for more information.</p>
-
-        <h3><i class="fas fa-lightbulb"></i> What kind of projects are expected?</h3>
-        <p>Projects should address gender equality issues using AI. Examples include chatbots for accessing government schemes, career planning tools for girls, or AI-powered health support systems.</p>
+        <div class="icon-text">
+            <i class="fas fa-robot"></i>
+            <div>
+                <h3>Do I need to be an expert in AI to participate?</h3>
+                <p>No, but basic knowledge of AI and machine learning is beneficial. We welcome participants with diverse skills and backgrounds.</p>
+            </div>
+        </div>
+        <div class="icon-text">
+            <i class="fas fa-money-bill-wave"></i>
+            <div>
+                <h3>Is there a registration fee?</h3>
+                <p>No, participation in the hackathon is free of charge.</p>
+            </div>
+        </div>
+        <div class="icon-text">
+            <i class="fas fa-plane"></i>
+            <div>
+                <h3>Will travel support be provided for the onsite event?</h3>
+                <p>Limited travel support may be available for teams demonstrating financial need. Please contact the organizers for more information.</p>
+            </div>
+        </div>
+        <div class="icon-text">
+            <i class="fas fa-lightbulb"></i>
+            <div>
+                <h3>What kind of projects are expected?</h3>
+                <p>Projects should address gender equality issues using AI. Examples include chatbots for accessing government schemes, career planning tools for girls, or AI-powered health support systems.</p>
+            </div>
+        </div>
     </div>
 </body>
 </html>
