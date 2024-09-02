@@ -6,282 +6,391 @@
     <title>GenAI x Gender Tech Hackathon</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <style>
+
+        :root {
+        --primary-color: #2563eb;
+        --secondary-color: #fde047;
+        --background-color: #f3f4f6;
+        --text-color: #333;
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            color: #5f6368;
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 20px;
+        font-family: 'Roboto', Arial, sans-serif;
+        line-height: 1.6;
+        color: var(--text-color);
+        background-color: var(--background-color);
         }
-        .nav {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 40px;
-            padding-bottom: 10px;
+
+        .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
         }
-        .nav a {
-            color: #5f6368;
-            text-decoration: none;
-            margin: 0 20px;
-            font-weight: 500;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+
+        header {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('images/bg.webp');
+        background-size: cover;
+        background-position: center;
+        color: white;
+        text-align: center;
+        padding: 100px 0 20px;
+        position: relative;
         }
-        .nav a:first-child {
-            color: #1a73e8;
+
+        header::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 50px;
+        background: linear-gradient(to top, var(--background-color), transparent);
         }
-        .nav i {
-            font-size: 24px;
-            margin-bottom: 5px;
-        }
+
         h1 {
-            font-size: 48px;
-            font-weight: normal;
-            margin-bottom: 10px;
-            text-align: center;
-            color: #202124;
+        font-size: 48px;
+        margin-bottom: 16px;
+        font-weight: 700;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
+
         h1 span {
-            color: #1a73e8;
+        color: var(--secondary-color);
         }
-        .subtitle {
-            text-align: center;
-            font-size: 18px;
-            margin-bottom: 30px;
-            color: #5f6368;
+
+        .header-subtitle {
+        font-size: 20px;
+        margin-bottom: 32px;
+        color: var(--secondary-color);
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
         }
-        .supported-by {
-            text-align: center;
-            margin-bottom: 30px;
+
+        .header-date {
+        font-size: 18px;
+        margin-bottom: 32px;
+        background-color: rgba(255, 255, 255, 0.2);
+        display: inline-block;
+        padding: 10px 20px;
+        border-radius: 5px;
+        backdrop-filter: blur(5px);
         }
-        .supported-by p {
-            margin-bottom: 10px;
-            font-weight: 500;
-        }
-        .logo-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 20px;
-        }
-        .logo {
-            height: 40px;
-            width: auto;
-        }
-        .date-location {
-            text-align: center;
-            margin-bottom: 20px;
-            font-size: 16px;
-        }
+
         .register-btn {
-            display: block;
-            width: 300px;
-            margin: 0 auto 40px;
-            padding: 12px 24px;
-            background-color: #1a73e8;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            text-align: center;
-            font-weight: bold;
-            font-size: 18px;
+        display: inline-block;
+        background-color: var(--secondary-color);
+        color: var(--primary-color);
+        font-weight: bold;
+        text-decoration: none;
+        padding: 15px 30px;
+        border-radius: 9999px;
+        transition: all 0.3s;
+        font-size: 18px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
-        .section {
-            margin-bottom: 60px;
+
+        .register-btn:hover {
+        background-color: #fdd835;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
         }
+
+        nav {
+        background-color: rgba(255, 255, 255, 0.1);
+        padding: 10px 0;
+        margin-top: 20px;
+        backdrop-filter: blur(5px);
+        }
+
+        nav ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        }
+
+        nav ul li a {
+        display: block;
+        padding: 10px 20px;
+        text-decoration: none;
+        color: white;
+        transition: color 0.3s;
+        font-weight: 500;
+        }
+
+        nav ul li a:hover {
+        color: var(--secondary-color);
+        }
+
+        main {
+        padding: 60px 0;
+        }
+
+        section {
+        margin-bottom: 64px;
+        background-color: white;
+        border-radius: 8px;
+        padding: 32px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
         h2 {
-            font-size: 32px;
-            margin-top: 40px;
-            color: #202124;
-            display: flex;
-            align-items: center;
+        font-size: 36px;
+        margin-bottom: 24px;
+        display: flex;
+        align-items: center;
+        border-bottom: 2px solid var(--primary-color);
+        padding-bottom: 10px;
+        color: var(--primary-color);
         }
+
         h2 i {
-            margin-right: 15px;
-            font-size: 36px;
-            color: #1a73e8;
+        margin-right: 16px;
+        color: var(--primary-color);
         }
-        ul {
-            padding-left: 0;
-            list-style-type: none;
-        }
-        .icon-text {
-            display: flex;
-            align-items: center;
-            margin-bottom: 15px;
-        }
-        .icon-text i {
-            width: 30px;
-            margin-right: 10px;
-            color: #1a73e8;
-        }
+
         .timeline-image {
-            width: 100%;
-            max-width: 1000px;
-            height: auto;
-            display: block;
-            margin: 0 auto 20px;
+        width: 100%;
+        max-width: 800px;
+        height: auto;
+        margin: 0 auto 32px;
+        display: block;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .timeline-phase {
+        background-color: var(--background-color);
+        border-radius: 8px;
+        padding: 24px;
+        margin-bottom: 32px;
+        transition: all 0.3s;
+        }
+
+        .timeline-phase:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .timeline-phase h3 {
+        font-size: 24px;
+        margin-bottom: 8px;
+        color: var(--primary-color);
+        }
+
+        .faq-item {
+        background-color: var(--background-color);
+        border-radius: 8px;
+        padding: 24px;
+        margin-bottom: 24px;
+        transition: all 0.3s;
+        }
+
+        .faq-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .faq-item h3 {
+        font-size: 20px;
+        margin-bottom: 8px;
+        display: flex;
+        align-items: center;
+        color: var(--primary-color);
+        }
+
+        .faq-item h3 i {
+        margin-right: 16px;
+        color: var(--primary-color);
+        }
+
+        #partners {
+        background-color: white;
+        padding: 60px 0;
+        }
+
+        .partners-grid {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 40px;
+        }
+
+        .partner-logo {
+        max-width: 200px;
+        max-height: 100px;
+        object-fit: contain;
+        transition: all 0.3s;
+        }
+
+        .partner-logo:hover {
+        transform: scale(1.05);
+        }
+
+        .partner-logo.small {
+        max-width: 150px;
+        }
+
+        footer {
+        background-color: #1f2937;
+        color: white;
+        text-align: center;
+        padding: 32px 0;
+        }
+
+        .footer-links {
+        margin-top: 16px;
+        }
+
+        .footer-links a {
+        color: #60a5fa;
+        text-decoration: none;
+        margin: 0 8px;
+        transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+        color: #93c5fd;
         }
 
         @media (max-width: 768px) {
-            .timeline-image {
-                max-width: 100%;
-            }
+        header {
+            padding: 60px 0 20px;
         }
-        .timeline {
-            margin-top: 40px;
+        
+        h1 {
+            font-size: 36px;
         }
-        .timeline-header {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 20px;
+        
+        .header-subtitle {
+            font-size: 18px;
         }
-        .timeline-header div {
-            text-align: center;
-            padding: 10px;
-            border-radius: 5px;
-            font-weight: bold;
-            color: white;
+        
+        .header-date {
+            font-size: 16px;
         }
-        .timeline-header .registration { background-color: #4285F4; }
-        .timeline-header .selection { background-color: #EA4335; }
-        .timeline-header .hackathon { background-color: #34A853; }
-        .timeline-header .finalization { background-color: #FBBC05; }
-        .phase-box {
-            background: #f8f9fa;
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 20px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        
+        nav ul {
+            flex-direction: column;
+            align-items: center;
         }
-        .phase-box h3 {
-            margin-top: 0;
-            color: white;
-            padding: 10px;
-            border-radius: 5px 5px 0 0;
-            margin: -20px -20px 15px -20px;
+        
+        section {
+            padding: 24px;
         }
-        .phase-1 h3 { background-color: #4285F4; }
-        .phase-2 h3 { background-color: #EA4335; }
-        .phase-3 h3 { background-color: #34A853; }
-        .phase-4 h3 { background-color: #FBBC05; }
-        .phase-box .date {
-            font-weight: bold;
-            margin-bottom: 10px;
         }
     </style>
 </head>
 <body>
-    <div class="nav">
-        <a href="#overview"><i class="fas fa-home"></i> Overview</a>
-        <a href="#requirements"><i class="fas fa-list-check"></i> Requirements</a>
-        <a href="#timeline"><i class="fas fa-calendar-alt"></i> Timeline</a>
-        <a href="#faqs"><i class="fas fa-question-circle"></i> FAQs</a>
-    </div>
-
-    <h1>Gen<span>AI</span> x Gender Tech Hackathon</h1>
-    
-    <p class="subtitle">by Amrita University</p>
-
-    <div class="supported-by">
-        <p>Supported By</p>
-        <div class="logo-container">
-            <img src="images/unesco.svg" alt="UNESCO logo" class="logo">
-            <img src="images/google.png" alt="Google logo" class="logo">
+    <header>
+        <div class="container">
+            <h1>Gen<span>AI</span> x Gender Tech Hackathon</h1>
+            <p class="header-subtitle">by Amrita University</p>
+            <p class="header-date">
+                <i class="far fa-calendar-alt"></i>
+                Dec 1, 2024 - Jan 18, 2025 • Online + Onsite at Amritapuri Campus, Kerala
+            </p>
+            <a href="https://forms.gle/CvSGKFHNEeJotm6P7" class="register-btn" target="_blank">Register now</a>
         </div>
-    </div>
+        <nav>
+            <ul>
+                <li><a href="#overview">Overview</a></li>
+                <li><a href="#requirements">Requirements</a></li>
+                <li><a href="#timeline">Timeline</a></li>
+                <li><a href="#faqs">FAQs</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <p class="date-location">
-        <i class="far fa-calendar-alt"></i>
-        Dec 1, 2024 - Jan 18, 2025 • Online + Onsite at Amritapuri Campus, Kerala
-    </p>
+    <main class="container">
+        <section id="overview">
+            <h2><i class="fas fa-info-circle"></i> Overview</h2>
+            <p>The GenAI x Gender Tech Hackathon, organized by Amrita University's School of Social and Behavioral Sciences in collaboration with the UNESCO Chair on Gender Equality and Women's Empowerment, aims to harness the power of AI to address critical challenges at the intersection of gender empowerment and equality.</p>
+            <p>This hackathon brings together a diverse group of participants to develop innovative solutions that amplify the voices of women and underrepresented groups in technology, address gender biases in AI, and foster responsible AI practices.</p>
+        </section>
 
-    <a href="https://forms.gle/CvSGKFHNEeJotm6P7" class="register-btn" target="_blank">Register now</a>
+        <section id="requirements">
+            <h2><i class="fas fa-clipboard-list"></i> Requirements</h2>
+            <ul class="requirements-list">
+                <li><i class="fas fa-users"></i> Teams of 3-5 members</li>
+                <li><i class="fas fa-globe"></i> Open to participants globally</li>
+                <li><i class="fas fa-laptop-code"></i> Participants can be students (undergraduates, graduate and PhD students) with a valid university affiliation</li>
+                <li><i class="fas fa-brain"></i> Basic knowledge of AI/ML or social sciences or design</li>
+                <li><i class="fas fa-heart"></i> Passion for addressing issues affecting women and other underrepresented groups through technology</li>
+            </ul>
+        </section>
 
-    <div id="overview" class="section">
-        <h2><i class="fas fa-info-circle"></i> Overview</h2>
-        <p>The GenAI x Gender Tech Hackathon, organized by Amrita University's School of Social and Behavioral Sciences in collaboration with the UNESCO Chair on Gender Equality and Women's Empowerment, aims to harness the power of AI to address critical challenges at the intersection of gender empowerment and equality.</p>
-        <p>This hackathon brings together a diverse group of participants to develop innovative solutions that amplify the voices of women and underrepresented groups in technology, address gender biases in AI, and foster responsible AI practices.</p>
-    </div>
+        <section id="timeline">
+            <h2><i class="fas fa-clock"></i> Timeline</h2>
 
-    <div id="requirements" class="section">
-        <h2><i class="fas fa-clipboard-list"></i> Requirements</h2>
-        <ul>
-            <li class="icon-text"><i class="fas fa-users"></i> Teams of 3-5 members</li>
-            <li class="icon-text"><i class="fas fa-globe"></i> Open to participants globally</li>
-            <li class="icon-text"><i class="fas fa-laptop-code"></i> Participants can be students (undergraduates, graduate and PhD students) with a valid university affiliation</li>
-            <li class="icon-text"><i class="fas fa-brain"></i> Basic knowledge of AI/ML or social sciences or design</li>
-            <li class="icon-text"><i class="fas fa-heart"></i> Passion for addressing issues affecting women and other underrepresented groups through technology</li>
-        </ul>
-    </div>
+            <img src="images/timeline.svg" alt="Hackathon Timeline" class="timeline-image">
 
-    <div id="timeline" class="section">
-        <h2><i class="fas fa-clock"></i> Timeline</h2>
-        
-        <img src="images/timeline.svg" alt="Hackathon Timeline" class="timeline-image">
-    
-        <div class="phase-box phase-1">
-            <h3>Phase 1: Registration</h3>
-            <p class="date">September 5 - November 22, 2024</p>
-            <p><strong>Registration Period</strong></p>
-            <p>Register for the GenAI x Gender Tech Hackathon. Form your teams and prepare for an exciting journey of innovation and problem-solving in the field of AI and gender equality.</p>
-        </div>
-    
-        <div class="phase-box phase-2">
-            <h3>Phase 2: Participant Selection</h3>
-            <p class="date">November 24, 2024</p>
-            <p><strong>Participants Selected</strong></p>
-            <p>The organizing committee will review all applications and select the participants for the hackathon. Successful applicants will be notified and provided with further instructions.</p>
-        </div>
-    
-        <div class="phase-box phase-3">
-            <h3>Phase 3: Hackathon</h3>
-            <p class="date">December 1 - December 28, 2024</p>
-            <p><strong>Online Hackathon</strong></p>
-            <p>The hackathon begins! Participants will work on their projects, leveraging AI to address gender equality challenges. Mentorship and support will be provided throughout this phase.</p>
-        </div>
-    
-        <div class="phase-box phase-4">
-            <h3>Phase 4: Finalization and Presentations</h3>
-            <p class="date">January 6 - January 18, 2025</p>
-            <p><strong>Top 10 Teams Selection and Final Presentations</strong></p>
-            <p>January 6: The top 10 teams will be selected based on their project submissions.</p>
-            <p>January 18: Onsite presentations and awards ceremony at Amritapuri Campus. The selected teams will showcase their projects, and winners will be announced.</p>
-        </div>
-    </div>
+            <div class="timeline-phase">
+                <h3>Phase 1: Registration</h3>
+                <p><strong>September 5 - November 22, 2024</strong></p>
+                <p>Register for the GenAI x Gender Tech Hackathon. Form your teams and prepare for an exciting journey of innovation and problem-solving in the field of AI and gender equality.</p>
+            </div>
+            <div class="timeline-phase">
+                <h3>Phase 2: Participant Selection</h3>
+                <p><strong>November 24, 2024</strong></p>
+                <p>The organizing committee will review all applications and select the participants for the hackathon. Successful applicants will be notified and provided with further instructions.</p>
+            </div>
+            <div class="timeline-phase">
+                <h3>Phase 3: Hackathon</h3>
+                <p><strong>December 1 - December 28, 2024</strong></p>
+                <p>The hackathon begins! Participants will work on their projects, leveraging AI to address gender equality challenges. Mentorship and support will be provided throughout this phase.</p>
+            </div>
+            <div class="timeline-phase">
+                <h3>Phase 4: Finalization and Presentations</h3>
+                <p><strong>January 6 - January 18, 2025</strong></p>
+                <p>January 6: The top 10 teams will be selected based on their project submissions.</p>
+                <p>January 18: Onsite presentations and awards ceremony at Amritapuri Campus. The selected teams will showcase their projects, and winners will be announced.</p>
+            </div>
+        </section>
 
-    <div id="faqs" class="section">
-        <h2><i class="fas fa-question-circle"></i> FAQs</h2>
-        <div class="icon-text">
-            <i class="fas fa-robot"></i>
-            <div>
-                <h3>Do I need to be an expert in AI to participate?</h3>
+        <section id="partners">
+            <div class="container">
+                <h2><i class="fas fa-handshake"></i> Our Partners</h2>
+                <div class="partners-grid">
+                    <img src="images/logos/ammachi.png" alt="Ammachi Labs" class="partner-logo small">
+                    <img src="images/logos/CCS.svg" alt="CCS" class="partner-logo">
+                    <img src="images/logos/cwege.png" alt="Center for Women's Global Leadership" class="partner-logo">
+                    <img src="images/logos/ieeekerala.jpeg" alt="IEEE Kerala Section" class="partner-logo">
+                </div>
+            </div>
+        </section>
+
+        <section id="faqs">
+            <h2><i class="fas fa-question-circle"></i> FAQs</h2>
+            <div class="faq-item">
+                <h3><i class="fas fa-robot"></i> Do I need to be an expert in AI to participate?</h3>
                 <p>No, but basic knowledge of AI and machine learning is beneficial. We welcome participants with diverse skills and backgrounds.</p>
             </div>
-        </div>
-        <div class="icon-text">
-            <i class="fas fa-money-bill-wave"></i>
-            <div>
-                <h3>Is there a registration fee?</h3>
+            <div class="faq-item">
+                <h3><i class="fas fa-money-bill-wave"></i> Is there a registration fee?</h3>
                 <p>No, participation in the hackathon is free of charge.</p>
             </div>
-        </div>
-        <div class="icon-text">
-            <i class="fas fa-plane"></i>
-            <div>
-                <h3>Will travel support be provided for the onsite event?</h3>
+            <div class="faq-item">
+                <h3><i class="fas fa-plane"></i> Will travel support be provided for the onsite event?</h3>
                 <p>Limited travel support may be available for teams demonstrating financial need. Please contact the organizers for more information.</p>
             </div>
-        </div>
-        <div class="icon-text">
-            <i class="fas fa-lightbulb"></i>
-            <div>
-                <h3>What kind of projects are expected?</h3>
+            <div class="faq-item">
+                <h3><i class="fas fa-lightbulb"></i> What kind of projects are expected?</h3>
                 <p>Projects should address gender equality issues using AI. Examples include chatbots for accessing government schemes, career planning tools for girls, or AI-powered health support systems.</p>
             </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Amrita Vishwa Vidyapeetham. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#">Facebook</a>
+                <a href="#">Twitter</a>
+                <a href="#">Instagram</a>
+            </div>
         </div>
-    </div>
+    </footer>
 </body>
 </html>
