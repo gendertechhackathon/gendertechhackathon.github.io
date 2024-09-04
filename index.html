@@ -6,279 +6,349 @@
     <title>GenAI x Gender Tech Hackathon</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <style>
-
         :root {
-        --primary-color: #2563eb;
-        --secondary-color: #fde047;
-        --background-color: #f3f4f6;
-        --text-color: #333;
+            --primary-color: #2563eb;
+            --secondary-color: #fde047;
+            --background-color: #f3f4f6;
+            --text-color: #333;
         }
 
         body {
-        font-family: 'Roboto', Arial, sans-serif;
-        line-height: 1.6;
-        color: var(--text-color);
-        background-color: var(--background-color);
+            font-family: 'Roboto', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+            margin: 0;
+            padding: 0;
         }
 
         .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
 
         header {
-        background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('images/bg.webp');
-        background-size: cover;
-        background-position: center;
-        color: white;
-        text-align: center;
-        padding: 100px 0 20px;
-        position: relative;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('images/bg.webp');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 100px 0 20px;
+            position: relative;
         }
 
         header::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        height: 50px;
-        background: linear-gradient(to top, var(--background-color), transparent);
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 50px;
+            background: linear-gradient(to top, var(--background-color), transparent);
         }
 
         h1 {
-        font-size: 48px;
-        margin-bottom: 16px;
-        font-weight: 700;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            font-size: 48px;
+            margin-bottom: 16px;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
 
         h1 span {
-        color: var(--secondary-color);
+            color: var(--secondary-color);
         }
 
         .header-subtitle {
-        font-size: 20px;
-        margin-bottom: 32px;
-        color: var(--secondary-color);
-        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+            font-size: 20px;
+            margin-bottom: 32px;
+            color: var(--secondary-color);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
         }
 
         .header-date {
-        font-size: 18px;
-        margin-bottom: 32px;
-        background-color: rgba(255, 255, 255, 0.2);
-        display: inline-block;
-        padding: 10px 20px;
-        border-radius: 5px;
-        backdrop-filter: blur(5px);
+            font-size: 18px;
+            margin-bottom: 32px;
+            background-color: rgba(255, 255, 255, 0.2);
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 5px;
+            backdrop-filter: blur(5px);
         }
 
         .register-btn {
-        display: inline-block;
-        background-color: var(--secondary-color);
-        color: var(--primary-color);
-        font-weight: bold;
-        text-decoration: none;
-        padding: 15px 30px;
-        border-radius: 9999px;
-        transition: all 0.3s;
-        font-size: 18px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            font-weight: bold;
+            text-decoration: none;
+            padding: 15px 30px;
+            border-radius: 9999px;
+            transition: all 0.3s;
+            font-size: 18px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
         .register-btn:hover {
-        background-color: #fdd835;
-        transform: translateY(-2px);
-        box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+            background-color: #fdd835;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
         }
 
         nav {
-        background-color: rgba(255, 255, 255, 0.1);
-        padding: 10px 0;
-        margin-top: 20px;
-        backdrop-filter: blur(5px);
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 10px 0;
+            margin-top: 20px;
+            backdrop-filter: blur(5px);
         }
 
         nav ul {
-        list-style-type: none;
-        padding: 0;
-        margin: 0;
-        display: flex;
-        justify-content: center;
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
         }
 
         nav ul li a {
-        display: block;
-        padding: 10px 20px;
-        text-decoration: none;
-        color: white;
-        transition: color 0.3s;
-        font-weight: 500;
+            display: block;
+            padding: 10px 20px;
+            text-decoration: none;
+            color: white;
+            transition: color 0.3s;
+            font-weight: 500;
         }
 
         nav ul li a:hover {
-        color: var(--secondary-color);
+            color: var(--secondary-color);
         }
 
         main {
-        padding: 60px 0;
+            padding: 60px 0;
         }
 
         section {
-        margin-bottom: 64px;
-        background-color: white;
-        border-radius: 8px;
-        padding: 32px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 64px;
+            background-color: white;
+            border-radius: 8px;
+            padding: 32px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
         h2 {
-        font-size: 36px;
-        margin-bottom: 24px;
-        display: flex;
-        align-items: center;
-        border-bottom: 2px solid var(--primary-color);
-        padding-bottom: 10px;
-        color: var(--primary-color);
+            font-size: 36px;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 10px;
+            color: var(--primary-color);
         }
 
         h2 i {
-        margin-right: 16px;
-        color: var(--primary-color);
+            margin-right: 16px;
+            color: var(--primary-color);
         }
 
         .timeline-image {
-        width: 100%;
-        max-width: 800px;
-        height: auto;
-        margin: 0 auto 32px;
-        display: block;
-        border-radius: 8px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 800px;
+            height: auto;
+            margin: 0 auto 32px;
+            display: block;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
         .timeline-phase {
-        background-color: var(--background-color);
-        border-radius: 8px;
-        padding: 24px;
-        margin-bottom: 32px;
-        transition: all 0.3s;
+            background-color: var(--background-color);
+            border-radius: 8px;
+            padding: 24px;
+            margin-bottom: 32px;
+            transition: all 0.3s;
         }
 
         .timeline-phase:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+            transform: translateY(-5px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
         }
 
         .timeline-phase h3 {
-        font-size: 24px;
-        margin-bottom: 8px;
-        color: var(--primary-color);
+            font-size: 24px;
+            margin-bottom: 8px;
+            color: var(--primary-color);
         }
 
         .faq-item {
-        background-color: var(--background-color);
-        border-radius: 8px;
-        padding: 24px;
-        margin-bottom: 24px;
-        transition: all 0.3s;
+            background-color: var(--background-color);
+            border-radius: 8px;
+            padding: 24px;
+            margin-bottom: 24px;
+            transition: all 0.3s;
         }
 
         .faq-item:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+            transform: translateY(-5px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
         }
 
         .faq-item h3 {
-        font-size: 20px;
-        margin-bottom: 8px;
-        display: flex;
-        align-items: center;
-        color: var(--primary-color);
+            font-size: 20px;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            color: var(--primary-color);
         }
 
         .faq-item h3 i {
-        margin-right: 16px;
-        color: var(--primary-color);
+            margin-right: 16px;
+            color: var(--primary-color);
         }
 
         #partners {
-        background-color: white;
-        padding: 60px 0;
+            background-color: white;
+            padding: 60px 0;
         }
 
         .partners-grid {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-wrap: wrap;
-        gap: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 40px;
         }
 
         .partner-logo {
-        max-width: 200px;
-        max-height: 100px;
-        object-fit: contain;
-        transition: all 0.3s;
+            max-width: 200px;
+            max-height: 100px;
+            object-fit: contain;
+            transition: all 0.3s;
         }
 
         .partner-logo:hover {
-        transform: scale(1.05);
+            transform: scale(1.05);
         }
 
         .partner-logo.small {
-        max-width: 150px;
+            max-width: 150px;
         }
 
         footer {
-        background-color: #1f2937;
-        color: white;
-        text-align: center;
-        padding: 32px 0;
+            background-color: #1f2937;
+            color: white;
+            text-align: center;
+            padding: 32px 0;
         }
 
         .footer-links {
-        margin-top: 16px;
+            margin-top: 16px;
         }
 
         .footer-links a {
-        color: #60a5fa;
-        text-decoration: none;
-        margin: 0 8px;
-        transition: color 0.3s;
+            color: #60a5fa;
+            text-decoration: none;
+            margin: 0 8px;
+            transition: color 0.3s;
         }
 
         .footer-links a:hover {
-        color: #93c5fd;
+            color: #93c5fd;
+        }
+
+        .why-participate-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+            margin-top: 32px;
+        }
+
+        .why-participate-item {
+            background-color: var(--background-color);
+            border-radius: 8px;
+            padding: 24px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .why-participate-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .why-participate-item i {
+            font-size: 48px;
+            color: var(--primary-color);
+            margin-bottom: 16px;
+        }
+
+        .why-participate-item h3 {
+            font-size: 20px;
+            margin-bottom: 8px;
+            color: var(--primary-color);
+        }
+
+        .prizes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+            margin-top: 32px;
+        }
+
+        .prize-item {
+            background-color: var(--background-color);
+            border-radius: 8px;
+            padding: 24px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .prize-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .prize-item h3 {
+            font-size: 24px;
+            margin-bottom: 16px;
+            color: var(--primary-color);
+        }
+
+        .prize-item p {
+            font-size: 18px;
+            font-weight: bold;
         }
 
         @media (max-width: 768px) {
-        header {
-            padding: 60px 0 20px;
-        }
-        
-        h1 {
-            font-size: 36px;
-        }
-        
-        .header-subtitle {
-            font-size: 18px;
-        }
-        
-        .header-date {
-            font-size: 16px;
-        }
-        
-        nav ul {
-            flex-direction: column;
-            align-items: center;
-        }
-        
-        section {
-            padding: 24px;
-        }
+            header {
+                padding: 60px 0 20px;
+            }
+            
+            h1 {
+                font-size: 36px;
+            }
+            
+            .header-subtitle {
+                font-size: 18px;
+            }
+            
+            .header-date {
+                font-size: 16px;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            section {
+                padding: 24px;
+            }
+
+            .why-participate-grid,
+            .prizes-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -296,7 +366,7 @@
         <nav>
             <ul>
                 <li><a href="#overview">Overview</a></li>
-                <li><a href="#requirements">Requirements</a></li>
+                <li><a href="#prizes">Prizes</a></li>
                 <li><a href="#timeline">Timeline</a></li>
                 <li><a href="#faqs">FAQs</a></li>
             </ul>
@@ -306,8 +376,53 @@
     <main class="container">
         <section id="overview">
             <h2><i class="fas fa-info-circle"></i> Overview</h2>
-            <p>The GenAI x Gender Tech Hackathon, organized by Amrita University's School of Social and Behavioral Sciences in collaboration with the UNESCO Chair on Gender Equality and Women's Empowerment, aims to harness the power of AI to address critical challenges at the intersection of gender empowerment and equality.</p>
-            <p>This hackathon brings together a diverse group of participants to develop innovative solutions that amplify the voices of women and underrepresented groups in technology, address gender biases in AI, and foster responsible AI practices.</p>
+            <p>The GenAI x Gender Tech Hackathon, organized by Amrita University's School of Social and Behavioral Sciences in collaboration with the UNESCO Chair on Gender Equality and Women's Empowerment, is a groundbreaking initiative at the intersection of AI and social impact.</p>
+            <p>In a world where AI is shaping our future, we're ensuring that future is equitable. By bringing together diverse minds, we're not just solving problems; we're redefining what's possible when technology meets social responsibility.</p>
+            <p>This hackathon brings together passionate individuals to develop innovative solutions that amplify the voices of women and underrepresented groups in technology, address gender biases in AI, and foster responsible AI practices. Together, we're harnessing the power of GenAI to create a more inclusive digital future.</p>
+        </section>
+
+        <section id="why-participate">
+            <h2><i class="fas fa-rocket"></i> Why Participate</h2>
+            <div class="why-participate-grid">
+                <div class="why-participate-item">
+                    <i class="fas fa-globe"></i>
+                    <h3>Real-World Impact</h3>
+                    <p>Tackle issues that affect millions of lives using AI and contribute to meaningful social change.</p>
+                </div>
+                <div class="why-participate-item">
+                    <i class="fas fa-brain"></i>
+                    <h3>Transdisciplinary Approach</h3>
+                    <p>Experience the synergy where social sciences meet cutting-edge technology.</p>
+                </div>
+                <div class="why-participate-item">
+                    <i class="fas fa-users"></i>
+                    <h3>Network of Change-makers</h3>
+                    <p>Connect with like-minded individuals passionate about tech and social impact.</p>
+                </div>
+                <div class="why-participate-item">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h3>Skill Enhancement</h3>
+                    <p>Gain skills that transcend disciplines and prepare for the future of tech.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="prizes">
+            <h2><i class="fas fa-trophy"></i> Prizes</h2>
+            <div class="prizes-grid">
+                <div class="prize-item">
+                    <h3>1st Prize</h3>
+                    <p>₹50,000</p>
+                </div>
+                <div class="prize-item">
+                    <h3>2nd Prize</h3>
+                    <p>₹30,000</p>
+                </div>
+                <div class="prize-item">
+                    <h3>3rd Prize</h3>
+                    <p>₹20,000</p>
+                </div>
+            </div>
         </section>
 
         <section id="requirements">
