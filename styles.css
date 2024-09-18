@@ -787,3 +787,31 @@ footer {
       flex: 0 0 250px;
     }
   }
+
+  /* Cool Link Styles */
+a {
+    text-decoration: none;
+    color: var(--primary-color); /* Adjust the color to match your design */
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: var(--secondary-color);
+    left: 0;
+    bottom: -3px;
+    transition: width 0.3s ease, background-color 0.3s ease;
+    width: 0;
+}
+
+a:hover {
+    color: var(--tertiary-color); /* Change the color on hover */
+}
+
+a:hover::after {
+    width: 100%;
+}
