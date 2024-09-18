@@ -49,23 +49,62 @@ document.addEventListener('DOMContentLoaded', () => {
     hamburgerIcon.addEventListener('click', toggleMobileMenu);
     mobileMenuLinks.forEach(link => link.addEventListener('click', closeMobileMenu));
 
-/*     // Mentors carousel functionality
     const mentorsCarousel = document.querySelector('.mentors-carousel');
-    const mentorCards = document.querySelectorAll('.mentor-card');
-  
-    mentorCards.forEach((card, index) => {
-        card.style.scrollSnapAlign = index === 0 ? 'start' : 'none';
-    });
-  
-    mentorsCarousel.addEventListener('scroll', () => {
-        const scrollLeft = mentorsCarousel.scrollLeft;
-        const cardWidth = mentorCards[0].offsetWidth;
-        const currentIndex = Math.round(scrollLeft / cardWidth);
-  
-        mentorCards.forEach((card, index) => {
-            card.style.scrollSnapAlign = index === currentIndex ? 'start' : 'none';
+    if (mentorsCarousel) {
+        mentorsCarousel.addEventListener('wheel', function (e) {
+            if (window.innerWidth < 768) { // Adjust based on your mobile breakpoint
+                e.preventDefault(); // Prevent default vertical scrolling on mobile
+                this.scrollLeft += e.deltaY * 0.5; // Adjust multiplier for scroll speed
+            }
         });
-    }); */
+        
+        // Allow touch drag for mobile
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        mentorsCarousel.addEventListener('mousedown', (e) => {
+            isDown = true;
+            mentorsCarousel.classList.add('active');
+            startX = e.pageX - mentorsCarousel.offsetLeft;
+            scrollLeft = mentorsCarousel.scrollLeft;
+        });
+
+        mentorsCarousel.addEventListener('mouseleave', () => {
+            isDown = false;
+            mentorsCarousel.classList.remove('active');
+        });
+
+        mentorsCarousel.addEventListener('mouseup', () => {
+            isDown = false;
+            mentorsCarousel.classList.remove('active');
+        });
+
+        mentorsCarousel.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - mentorsCarousel.offsetLeft;
+            const walk = (x - startX) * 3; // Adjust scroll speed
+            mentorsCarousel.scrollLeft = scrollLeft - walk;
+        });
+        // Add event listeners for "Read more" buttons
+        const readMoreButtons = document.querySelectorAll('.read-more');
+        readMoreButtons.forEach(button => {
+            button.addEventListener('click', function() {
+            const bio = this.closest('.mentor-bio');
+            bio.classList.toggle('expanded');
+            this.textContent = bio.classList.contains('expanded') ? 'Read less' : 'Read more';
+            });
+        });
+    }
+
+    const expandButtons = document.querySelectorAll('.expand-button');
+    expandButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const bio = button.previousElementSibling;
+            bio.classList.toggle('expanded');
+        });
+    });
 
     // New FAQ accordion functionality
     const faqItems = document.querySelectorAll('.faq-item');
