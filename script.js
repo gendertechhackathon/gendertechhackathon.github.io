@@ -49,54 +49,54 @@ document.addEventListener('DOMContentLoaded', () => {
     hamburgerIcon.addEventListener('click', toggleMobileMenu);
     mobileMenuLinks.forEach(link => link.addEventListener('click', closeMobileMenu));
 
-    const mentorsCarousel = document.querySelector('.mentors-carousel');
-    if (mentorsCarousel) {
-        mentorsCarousel.addEventListener('wheel', function (e) {
-            if (window.innerWidth < 768) { // Adjust based on your mobile breakpoint
-                e.preventDefault(); // Prevent default vertical scrolling on mobile
-                this.scrollLeft += e.deltaY * 0.5; // Adjust multiplier for scroll speed
-            }
-        });
+    // const mentorsCarousel = document.querySelector('.mentors-carousel');
+    // if (mentorsCarousel) {
+    //     mentorsCarousel.addEventListener('wheel', function (e) {
+    //         if (window.innerWidth < 768) { // Adjust based on your mobile breakpoint
+    //             e.preventDefault(); // Prevent default vertical scrolling on mobile
+    //             this.scrollLeft += e.deltaY * 0.5; // Adjust multiplier for scroll speed
+    //         }
+    //     });
         
-        // Allow touch drag for mobile
-        let isDown = false;
-        let startX;
-        let scrollLeft;
+    //     // Allow touch drag for mobile
+    //     let isDown = false;
+    //     let startX;
+    //     let scrollLeft;
 
-        mentorsCarousel.addEventListener('mousedown', (e) => {
-            isDown = true;
-            mentorsCarousel.classList.add('active');
-            startX = e.pageX - mentorsCarousel.offsetLeft;
-            scrollLeft = mentorsCarousel.scrollLeft;
-        });
+    //     mentorsCarousel.addEventListener('mousedown', (e) => {
+    //         isDown = true;
+    //         mentorsCarousel.classList.add('active');
+    //         startX = e.pageX - mentorsCarousel.offsetLeft;
+    //         scrollLeft = mentorsCarousel.scrollLeft;
+    //     });
 
-        mentorsCarousel.addEventListener('mouseleave', () => {
-            isDown = false;
-            mentorsCarousel.classList.remove('active');
-        });
+    //     mentorsCarousel.addEventListener('mouseleave', () => {
+    //         isDown = false;
+    //         mentorsCarousel.classList.remove('active');
+    //     });
 
-        mentorsCarousel.addEventListener('mouseup', () => {
-            isDown = false;
-            mentorsCarousel.classList.remove('active');
-        });
+    //     mentorsCarousel.addEventListener('mouseup', () => {
+    //         isDown = false;
+    //         mentorsCarousel.classList.remove('active');
+    //     });
 
-        mentorsCarousel.addEventListener('mousemove', (e) => {
-            if (!isDown) return;
-            e.preventDefault();
-            const x = e.pageX - mentorsCarousel.offsetLeft;
-            const walk = (x - startX) * 3; // Adjust scroll speed
-            mentorsCarousel.scrollLeft = scrollLeft - walk;
-        });
-        // Add event listeners for "Read more" buttons
-        const readMoreButtons = document.querySelectorAll('.read-more');
-        readMoreButtons.forEach(button => {
-            button.addEventListener('click', function() {
-            const bio = this.closest('.mentor-bio');
-            bio.classList.toggle('expanded');
-            this.textContent = bio.classList.contains('expanded') ? 'Read less' : 'Read more';
-            });
-        });
-    }
+    //     mentorsCarousel.addEventListener('mousemove', (e) => {
+    //         if (!isDown) return;
+    //         e.preventDefault();
+    //         const x = e.pageX - mentorsCarousel.offsetLeft;
+    //         const walk = (x - startX) * 3; // Adjust scroll speed
+    //         mentorsCarousel.scrollLeft = scrollLeft - walk;
+    //     });
+    //     // Add event listeners for "Read more" buttons
+    //     const readMoreButtons = document.querySelectorAll('.read-more');
+    //     readMoreButtons.forEach(button => {
+    //         button.addEventListener('click', function() {
+    //         const bio = this.closest('.mentor-bio');
+    //         bio.classList.toggle('expanded');
+    //         this.textContent = bio.classList.contains('expanded') ? 'Read less' : 'Read more';
+    //         });
+    //     });
+    // }
 
     const expandButtons = document.querySelectorAll('.expand-button');
     expandButtons.forEach(button => {
@@ -106,22 +106,50 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // New FAQ accordion functionality
-    const faqItems = document.querySelectorAll('.faq-item');
+    // // Modal functionality
+    // const modal = document.getElementById("mentor-modal");
+    // const closeModal = document.querySelector(".close");
 
+    // // Add event listeners for expand buttons to open modal
+    // document.querySelectorAll('.expand-button').forEach(button => {
+    //     button.addEventListener('click', function () {
+    //         const mentorCard = this.closest('.mentor-card');
+            
+    //         // Fill modal with content from the mentor card
+    //         document.querySelector(".modal-mentor-image").src = mentorCard.querySelector(".mentor-image").src;
+    //         document.querySelector(".modal-mentor-name").textContent = mentorCard.querySelector(".mentor-name").textContent;
+    //         document.querySelector(".modal-mentor-title").textContent = mentorCard.querySelector(".mentor-title").textContent;
+    //         document.querySelector(".modal-mentor-expertise").textContent = mentorCard.querySelector(".mentor-expertise").textContent;
+    //         document.querySelector(".modal-mentor-bio").textContent = mentorCard.querySelector(".mentor-bio").textContent;
+
+    //         // Show the modal
+    //         modal.style.display = "flex";
+    //     });
+    // });
+
+    // // Close the modal when the user clicks on <span> (x)
+    // closeModal.onclick = function () {
+    //     modal.style.display = "none";
+    // }
+
+    // // Close the modal when the user clicks outside the modal content
+    // window.onclick = function (event) {
+    //     if (event.target === modal) {
+    //         modal.style.display = "none";
+    //     }
+    // }
+
+    // FAQ accordion functionality
+    const faqItems = document.querySelectorAll('.faq-item');
     faqItems.forEach(item => {
         const question = item.querySelector('.faq-question');
         const answer = item.querySelector('.faq-answer');
 
-        // Initially hide all answers
         answer.style.maxHeight = '0';
         answer.style.padding = '0 20px';
 
         question.addEventListener('click', () => {
-            // Toggle the active class on the question
             question.classList.toggle('active');
-
-            // Toggle the display of the answer
             if (answer.style.maxHeight === '0px') {
                 answer.style.maxHeight = answer.scrollHeight + 'px';
                 answer.style.padding = '10px 20px';

@@ -680,12 +680,6 @@ footer {
     line-height: 1.6;
     color: #333;
     margin-bottom: 2rem;
-    /* Remove the following lines:
-    text-align: center;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-    */
 }
   
   .mentors-carousel {
@@ -696,15 +690,41 @@ footer {
     padding-bottom: 1rem;
   }
 
-  .mentor-card {
-    flex: 0 0 300px;
+  .mentor-cards-container {
+    display: flex;
+    flex-wrap: wrap; /* Allows wrapping of cards when screen is too small */
+    gap: 20px; /* Space between cards */
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+.mentor-card {
+    position: relative;
+    flex: 1 1 calc(33.333% - 20px); /* 3 cards per row, accounting for gap */
+    max-width: calc(33.333% - 20px); /* Ensures the width doesn't exceed 33.33% of container */
     scroll-snap-align: start;
     background-color: #ffffff;
-    border-radius: 10px;
+    border-radius: 5px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     transition: transform 0.3s ease;
-  }
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+    .mentor-card {
+        flex: 1 1 calc(50% - 20px); /* 2 cards per row on medium screens */
+        max-width: calc(50% - 20px);
+    }
+}
+
+/* Media query for mobile screens */
+@media (max-width: 480px) {
+    .mentor-card {
+        flex: 1 1 100%; /* 1 card per row on small screens */
+        max-width: 100%;
+    }
+}
   
   .mentor-card:hover {
     transform: translateY(-5px);
@@ -712,34 +732,46 @@ footer {
   
   .mentor-image {
     width: 100%;
-    height: 200px;
+    height: 300px;
     object-fit: cover;
   }
   
   .mentor-info {
     padding: 1rem;
     position: relative;
-  }
-  
-  .mentor-name {
+    min-height: 250px;
+}
+
+.mentor-name {
     font-size: 1.2rem;
     color: var(--primary-color);
     margin-bottom: 0.25rem;
-  }
-  
-  .mentor-title {
+}
+
+.mentor-title {
     font-size: 0.9rem;
     color: #666;
     margin-bottom: 0.5rem;
-  }
-  
-  .mentor-bio {
+}
+
+
+.mentor-expertise {
+    font-size: 0.85rem;
+    color: var(--primary-color);
+    margin-top: 0.5rem;
+    min-height: 40px; 
+    overflow: hidden;
+}
+
+.mentor-bio {
     font-size: 0.85rem;
     line-height: 1.4;
     max-height: 3.9em;
     overflow: hidden;
     transition: max-height 0.3s ease;
-  }
+    margin-top: 10px;
+    position: relative; 
+}
   
   .mentor-bio.expanded {
     max-height: 1000px;
@@ -749,38 +781,31 @@ footer {
     position: absolute;
     bottom: 10px;
     right: 10px;
-    width: 24px;
-    height: 24px;
+    width: 30px;
+    height: 30px;
     background-color: var(--primary-color);
     color: white;
     border: none;
     border-radius: 50%;
     font-size: 18px;
-    line-height: 24px;
+    line-height: 30px;
     text-align: center;
     cursor: pointer;
     transition: background-color 0.3s ease;
-  }
-  
-  .expand-button:hover {
+
+}
+
+.expand-button:hover {
     background-color: var(--tertiary-color);
-  }
-  
-  .expand-button::before {
+}
+
+.expand-button::before {
     content: '+';
   }
-  
-  .mentor-bio.expanded + .expand-button::before {
+
+.mentor-bio.expanded + .expand-button::before {
     content: '−';
   }
-  
-  .mentor-expertise {
-    font-size: 0.85rem;
-    color: var(--primary-color);
-    margin-top: 0.5rem;
-  }
-  
-  /* Scrollbar styles remain the same */
   
   @media (max-width: 768px) {
     .mentor-card {
