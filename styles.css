@@ -1,5 +1,5 @@
 :root {
-    --primary-color: #1a73e8;
+    --primary-color: #400d77;
     --secondary-color: #fde047;
     --tertiary-color: #7c3aed;
     --background-color: #f3f4f6;
@@ -74,7 +74,7 @@ h1 span {
 
 /* Navigation Styles */
 #main-nav {
-    background-color: rgba(26, 115, 232, 0.9);
+    background-color: rgba(64, 13, 119, 0.877);
     padding: 10px 0;
     position: fixed;
     top: 0;
