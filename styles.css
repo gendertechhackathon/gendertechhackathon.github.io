@@ -44,6 +44,24 @@ header::after {
     background: linear-gradient(to top, var(--background-color), transparent);
 }
 
+.logo-image {
+    width: 100%;
+    max-width: 150px;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+    margin-bottom: -30px; /* Negative margin to reduce bottom space */
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 600px) {
+    .logo-image {
+        max-width: 80px; /* Reduce max-width for phones */
+    }
+}
+
+
 h1 {
     font-size: 64px;
     margin-bottom: 16px;
@@ -615,6 +633,19 @@ footer {
     background-color: var(--secondary-color);
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.cta-text-workshop {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: var(--primary-color);
+    text-align: center; /* Centers the text within the element */
+    margin: 30px auto; /* Automatically centers the block element horizontally */
+    padding: 20px;
+    background-color: var(--secondary-color);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: fit-content; /* Adjusts the width to fit the content */
 }
 
 /* Shared carousel styles */  
