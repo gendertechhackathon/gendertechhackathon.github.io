@@ -871,3 +871,66 @@ a:hover {
 a:hover::after {
     width: 100%;
 }
+
+/* Workshop Section Styles */
+.workshop-table {
+    margin-top: 2rem;
+    overflow-x: auto;
+  }
+
+  .workshop-table table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .workshop-table th,
+  .workshop-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #e2e8f0;
+  }
+
+  .workshop-table th {
+    background: #f7fafc;
+    font-weight: 600;
+    color: #2d3748;
+  }
+
+  .workshop-table tr:hover {
+    background: #f7fafc;
+  }
+
+  .speaker-name {
+    color: #4a5568;
+    font-weight: 500;
+  }
+
+  .speaker-org {
+    color: #718096;
+    font-style: italic;
+  }
+
+  .multi-speaker > div {
+    margin-bottom: 0.5rem;
+  }
+
+  .multi-speaker > div:last-child {
+    margin-bottom: 0;
+  }
+
+  @media (max-width: 768px) {
+    .workshop-table {
+      margin: 1rem -1rem;
+    }
+    
+    .workshop-table table {
+      font-size: 0.9rem;
+    }
+    
+    .workshop-table th,
+    .workshop-table td {
+      padding: 0.75rem;
+    }
+  }
