@@ -890,7 +890,10 @@ a:hover::after {
     padding: 1rem;
     text-align: left;
     border-bottom: 1px solid #e2e8f0;
+    position: relative;
   }
+
+
 
   .workshop-table th {
     background: #f7fafc;
@@ -920,6 +923,41 @@ a:hover::after {
     margin-bottom: 0;
   }
 
+  /* Button styles - moved outside media query */
+  .expand-workshop-button {
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    background: #e2e8f0;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    color: #4a5568;
+    transition: background-color 0.2s;
+  }
+
+  .expand-workshop-button:hover {
+    background: #cbd5e0;
+  }
+
+  .expanded-workshop-content {
+    display: none;
+    padding: 0 1rem 1rem 1rem;
+    border-bottom: 1px solid #e2e8f0;
+}
+.expanded-workshop-content.active {
+    display: table-row;
+}
+.expanded-workshop-content.active td {
+    border-top: none;
+}
+tr:has(+ .expanded-workshop-content.active) td {
+    border-bottom: none;
+}
+
   @media (max-width: 768px) {
     .workshop-table {
       margin: 1rem -1rem;
@@ -933,4 +971,5 @@ a:hover::after {
     .workshop-table td {
       padding: 0.75rem;
     }
+  
   }
